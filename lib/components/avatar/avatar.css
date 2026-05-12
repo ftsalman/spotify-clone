@@ -1,0 +1,16 @@
+@reference "tailwindcss";
+@reference "../../style.css";
+
+@layer components {
+  .tui-avatar {
+    @apply size-11 flex items-center justify-center rounded-full font-semibold bg-brand-500;
+  }
+
+  .tui-avatar-loading {
+    @apply animate-pulse bg-gray-300;
+  }
+
+  .tui-avatar-img {
+    @apply size-full object-cover;
+  }
+}

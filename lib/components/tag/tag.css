@@ -1,0 +1,44 @@
+@reference "tailwindcss";
+@reference "../../style.css";
+
+@layer components {
+  .tui-tag {
+    @apply line-clamp-1 w-fit items-center justify-center rounded-full font-medium;
+  }
+
+  /* Variants */
+
+  .tui-tag-gray {
+    @apply bg-gray-200 text-black;
+  }
+
+  .tui-tag-blue {
+    @apply bg-blue-100 text-blue-400;
+  }
+
+  .tui-tag-green {
+    @apply bg-green-100 text-green-400;
+  }
+
+  .tui-tag-yellow {
+    @apply bg-yellow-100 text-yellow-400;
+  }
+
+  .tui-tag-red {
+    @apply bg-red-100 text-red-400;
+  }
+
+  /* Sizes */
+
+  .tui-tag-sm {
+    @apply px-1.5 py-1 text-xs;
+  }
+
+  .tui-tag-md {
+    @apply px-2 py-1 text-sm;
+  }
+
+  .tui-tag-lg {
+    @apply px-2.5 py-1.5 text-sm;
+  }
+}

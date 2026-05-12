@@ -1,0 +1,55 @@
+@reference "tailwindcss";
+@reference "../../style.css";
+
+@layer components {
+  /* Style Variants */
+
+  .tui-btn {
+    @apply outline-0 flex items-center justify-center gap-2 rounded-lg border border-transparent text-sm font-medium transition-colors duration-300 cursor-pointer disabled:cursor-not-allowed;
+  }
+
+  .tui-btn-primary {
+    @apply text-white bg-brand-500 hover:opacity-90 focus:ring-[3px] focus:ring-brand-200 focus:border-brand-600 disabled:bg-gray-200 disabled:text-gray-400;
+  }
+
+  .tui-btn-secondary {
+    @apply text-brand-500 bg-white border-2 border-gray-200 hover:bg-gray-50 focus:ring-[3px] focus:ring-brand-100 focus:border-brand-400 shadow-sm shadow-gray-100 disabled:bg-gray-200 disabled:text-gray-400;
+  }
+
+  .tui-btn-tertiary {
+    @apply bg-transparent text-brand-500 focus:ring-[3px] focus:ring-brand-100 focus:border-brand-600 hover:bg-gray-50;
+  }
+
+  .tui-btn-accent-gradient {
+    @apply text-black bg-gradient-to-r from-[#FFC931] to-[#C39207]/80 hover:opacity-90 focus:ring-[3px] focus:ring-brand-primary-200 focus:border-brand-primary-600 disabled:bg-gray-200 disabled:text-gray-400;
+  }
+
+  .tui-btn-success {
+    @apply text-white bg-green-500 hover:opacity-90 focus:ring-[3px] focus:ring-green-200 focus:border-green-600 disabled:bg-gray-200 disabled:text-gray-400;
+  }
+
+  .tui-btn-danger {
+    @apply text-white bg-red-500 hover:opacity-90 focus:ring-[3px] focus:ring-red-200 focus:border-red-600 disabled:bg-gray-200 disabled:text-gray-400;
+  }
+
+  /* Size Variants */
+  .tui-btn-xs {
+    @apply h-[24px] px-4 py-2.5 text-xs;
+  }
+
+  .tui-btn-sm {
+    @apply h-[32px] px-4 py-[6px] text-xs;
+  }
+
+  .tui-btn-md {
+    @apply h-[40px] px-4 py-2.5 text-sm;
+  }
+
+  .tui-btn-lg {
+    @apply h-[52px] px-5 py-[14px] text-sm;
+  }
+
+  .tui-btn-xl {
+    @apply h-[56px] p-4 text-sm;
+  }
+}

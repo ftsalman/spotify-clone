@@ -1,0 +1,16 @@
+@reference "tailwindcss";
+@reference "../../style.css";
+
+@layer components {
+  .tui-input-group {
+    @apply relative w-full flex flex-col gap-1.5;
+  }
+
+  .tui-input-group-label {
+    @apply font-medium text-sm text-gray-800;
+  }
+
+  .tui-input-group-error {
+    @apply text-xs text-red-400; 
+  }
+}

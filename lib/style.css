@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+.tui-no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@import "tailwindcss";
+
+@theme {
+
+  /* Colors */
+
+  /* Secondary Color (Black) */
+  --color-brand-50: #EBEBEB;
+  --color-brand-100: #D6D6D6;
+  --color-brand-200: #ABABAB;
+  --color-brand-300: #828282;
+  --color-brand-400: #575757;
+  --color-brand-500: #2D2D2D;
+  --color-brand-600: #242424;
+  --color-brand-700: #1C1C1C;
+  --color-brand-800: #121212;
+  --color-brand-900: #0A0A0A;
+  --color-brand-950: #050505;
+
+  /* Primary Color (Yellow) */
+  --color-brand-primary-50: #FFFAEB;
+  --color-brand-primary-100: #FFF4D6;
+  --color-brand-primary-200: #FFE9AD;
+  --color-brand-primary-300: #FFDE85;
+  --color-brand-primary-400: #FFD45C;
+  --color-brand-primary-500: #FFC830;
+  --color-brand-primary-600: #F5B400;
+  --color-brand-primary-700: #B88700;
+  --color-brand-primary-800: #7A5A00;
+  --color-brand-primary-900: #3D2D00;
+  --color-brand-primary-950: #1F1600;
+
+  /* Typography */
+
+  --text-2xs: 0.5625rem;
+  --text-2xs--line-height: 0.875rem;
+
+  --text-xs: 0.675rem;
+  --text-xs--line-height: 0.875rem;
+
+  --text-sm: 0.7875rem;
+  --text-sm--line-height: 1.125rem;
+
+  --text-base: 0.84375rem;
+  --text-base--line-height: 1.25rem;
+
+  --text-md: 0.90625rem;
+  --text-md--line-height: 1.375rem;
+
+  --text-lg: 1rem;
+  --text-lg--line-height: 1.5rem;
+
+  --text-xl: 1.075rem;
+  --text-xl--line-height: 1.625rem;
+
+  --text-2xl: 1.15rem;
+  --text-2xl--line-height: 1.7rem;
+
+  --text-3xl: 1.25rem;
+  --text-3xl--line-height: 1.75rem;
+
+  --text-4xl: 1.625rem;
+  --text-4xl--line-height: 2.125rem;
+
+  --text-5xl: 2rem;
+  --text-5xl--line-height: 2.375rem;
+}

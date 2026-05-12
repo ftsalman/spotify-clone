@@ -1,0 +1,12 @@
+@reference "tailwindcss";
+@reference "../../style.css";
+
+@layer components {
+  .tui-card {
+    @apply p-4 rounded-xl shadow-md shadow-gray-50 border border-gray-200 bg-white;
+  }
+
+  .tui-card-hover {
+    @apply hover:shadow-lg shadow-gray-200 focus:shadow-lg focus:shadow-gray-200 duration-300 hover:cursor-pointer;
+  } 
+}

@@ -1,0 +1,82 @@
+@reference "tailwindcss";
+@reference "../../style.css";
+
+@layer components {
+  /* Drawer Backdrop -----------------------------------------------------------------------------------  */
+
+  .tui-drawer-backdrop {
+    @apply fixed z-50 inset-0 right-0 pl-4 flex justify-end backdrop-filter backdrop-blur-sm bg-gray-800/30;
+  }
+
+  /* Drawer  -----------------------------------------------------------------------------------  */
+
+  .tui-drawer {
+    @apply w-full sm:w-2/3 md:w-2/3 lg:w-2/3 xl:w-1/3 h-full flex flex-col rounded-l-3xl transition-all duration-300 border border-gray-200 bg-white;
+  }
+
+  /* Drawer Header  -----------------------------------------------------------------------------------  */
+
+  .tui-drawer-header {
+    @apply px-4 py-3 flex items-center justify-between gap-4 rounded-tl-3xl border-b border-gray-200 bg-white;
+  }
+
+  .tui-drawer-header--content {
+    @apply flex flex-col justify-center flex-grow;
+  }
+
+  .tui-drawer-header--content {
+    h5 {
+      @apply font-semibold text-lg text-gray-800;
+    }
+
+    p {
+      @apply mt-0.5 text-sm text-gray-400;
+    }
+  }
+
+  .tui-drawer-header--close-btn {
+    @apply flex-shrink-0 p-0 w-9 h-9 hover:bg-gray-50 focus:shadow-gray-100 text-gray-400 focus:ring-gray-100 focus:border-gray-300;
+  }
+
+  /* Drawer Body  -----------------------------------------------------------------------------------  */
+
+  .tui-drawer-body {
+    @apply overflow-auto p-4 flex-grow;
+  }
+
+  /* Drawer Footer  -----------------------------------------------------------------------------------  */
+
+  .tui-drawer-footer {
+    @apply p-4 flex items-center justify-end gap-2 border-t rounded-bl-3xl border-gray-200 bg-white;
+  }
+
+  /* Drawer Animation  -----------------------------------------------------------------------------------  */
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  .tui-drawer-animation-enter .tui-drawer {
+    animation: slideIn 0.2s forwards;
+  }
+
+  .tui-drawer-animation-exit .tui-drawer {
+    animation: slideOut 0.2s forwards;
+  }
+}

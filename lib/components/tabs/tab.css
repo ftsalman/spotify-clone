@@ -1,0 +1,17 @@
+@reference "tailwindcss";
+@reference "../../style.css";
+
+@layer components {
+  .tui-tab {
+    @apply w-full flex overflow-x-auto;
+  }
+
+  .tui-tab-item {
+    @apply h-10 px-2.5 py-2 flex-shrink-0 text-sm font-medium hover:bg-gray-50 border-b-2 border-gray-200 text-gray-600;
+  }
+
+  .tui-tab-item-active {
+    @apply border-brand-500 text-brand-500;
+  }
+}
+ 

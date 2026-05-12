@@ -1,0 +1,12 @@
+@reference "tailwindcss";
+@reference "../../style.css";
+
+@layer components {
+  .tui-menu {
+    @apply min-w-[150px] p-1.5 flex flex-col rounded-lg border-2 border-gray-100 shadow-xl shadow-black/10 bg-white;
+  }
+
+  .tui-menu-item {
+    @apply cursor-pointer p-2 flex items-center gap-2 rounded-md text-sm text-gray-600 hover:bg-gray-50 duration-300;
+  }
+}

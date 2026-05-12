@@ -1,0 +1,8 @@
+@reference "tailwindcss";
+@reference "../../style.css";
+
+@layer components {
+  .tui-list {
+    @apply w-full grid grid-cols-1 gap-4;
+  }
+}
