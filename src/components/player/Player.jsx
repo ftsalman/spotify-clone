@@ -1,14 +1,11 @@
+import { useState } from "react";
 import { assets } from "../../assets/assets";
 
 const formatTime = (seconds) => {
-  if (!Number.isFinite(seconds)) {
-    return "0:00";
-  }
-
+  if (!Number.isFinite(seconds)) return "0:00";
   const wholeSeconds = Math.floor(seconds);
   const minutes = Math.floor(wholeSeconds / 60);
   const remainingSeconds = wholeSeconds % 60;
-
   return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
 };
 
@@ -29,18 +26,53 @@ export const Player = ({
   onVolumeChange,
   volume,
 }) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const [activeExtra, setActiveExtra] = useState(null);
+
+  const toggleExtra = (control) => {
+    setActiveExtra((prev) => (prev === control ? null : control));
+  };
+
+  const handleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch((err) => {
+        console.warn(`Error attempting to enable fullscreen: ${err.message}`);
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  };
+
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
     <footer className="player-bar">
+      {/* NOW PLAYING */}
       <div className="now-playing">
         <img src={currentSong.image} alt="" />
         <div>
           <h2>{currentSong.name}</h2>
           <p>{currentSong.desc}</p>
         </div>
+        <div className="now-playing-actions">
+          <button 
+            className="like-btn" 
+            aria-label="Like" 
+            type="button"
+            onClick={() => setIsLiked(!isLiked)}
+          >
+            <img 
+              src={assets.like_icon} 
+              alt="" 
+              style={{ filter: isLiked ? 'brightness(0) saturate(100%) invert(56%) sepia(85%) saturate(385%) hue-rotate(95deg) brightness(92%) contrast(89%)' : 'none' }}
+            />
+          </button>
+        </div>
       </div>
 
+      {/* CENTER CONTROLS */}
       <div className="player-center">
         <div className="player-controls">
           <button
@@ -107,18 +139,35 @@ export const Player = ({
         </div>
       </div>
 
+      {/* EXTRA CONTROLS */}
       <div className="extra-controls">
-        <button aria-label="Now playing view" type="button">
-          <img src={assets.plays_icon} alt="" />
+        <button 
+          aria-label="Now playing view" 
+          type="button"
+          onClick={() => toggleExtra('plays')}
+        >
+          <img src={assets.plays_icon} alt="" style={{ opacity: activeExtra === 'plays' ? 1 : 0.7 }} />
         </button>
-        <button aria-label="Lyrics" type="button">
-          <img src={assets.mic_icon} alt="" />
+        <button 
+          aria-label="Lyrics" 
+          type="button"
+          onClick={() => toggleExtra('lyrics')}
+        >
+          <img src={assets.mic_icon} alt="" style={{ opacity: activeExtra === 'lyrics' ? 1 : 0.7 }} />
         </button>
-        <button aria-label="Queue" type="button">
-          <img src={assets.queue_icon} alt="" />
+        <button 
+          aria-label="Queue" 
+          type="button"
+          onClick={() => toggleExtra('queue')}
+        >
+          <img src={assets.queue_icon} alt="" style={{ opacity: activeExtra === 'queue' ? 1 : 0.7 }} />
         </button>
-        <button aria-label="Devices" type="button">
-          <img src={assets.speaker_icon} alt="" />
+        <button 
+          aria-label="Devices" 
+          type="button"
+          onClick={() => toggleExtra('devices')}
+        >
+          <img src={assets.speaker_icon} alt="" style={{ filter: activeExtra === 'devices' ? 'brightness(0) saturate(100%) invert(56%) sepia(85%) saturate(385%) hue-rotate(95deg) brightness(92%) contrast(89%)' : 'opacity(0.7)' }} />
         </button>
         <button aria-label={volume === 0 ? "Unmute" : "Mute"} onClick={onToggleMute} type="button">
           <img src={assets.volume_icon} alt="" />
@@ -134,10 +183,14 @@ export const Player = ({
           type="range"
           value={volume}
         />
-        <button aria-label="Mini player" type="button">
-          <img src={assets.mini_player_icon} alt="" />
+        <button 
+          aria-label="Mini player" 
+          type="button"
+          onClick={() => toggleExtra('mini')}
+        >
+          <img src={assets.mini_player_icon} alt="" style={{ opacity: activeExtra === 'mini' ? 1 : 0.7 }} />
         </button>
-        <button aria-label="Full screen" type="button">
+        <button aria-label="Full screen" type="button" onClick={handleFullscreen}>
           <img src={assets.zoom_icon} alt="" />
         </button>
       </div>

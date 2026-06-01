@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { DisplayHome } from "./DisplayHome";
 
-export const Display = ({ currentSong, isPlaying, onSongSelect }) => {
+export const Display = ({ currentSong, isPlaying, onSongSelect, songs = [], albums = [], onSearch }) => {
   return (
     <main className="display-panel">
       <Routes>
@@ -12,6 +12,9 @@ export const Display = ({ currentSong, isPlaying, onSongSelect }) => {
               currentSong={currentSong}
               isPlaying={isPlaying}
               onSongSelect={onSongSelect}
+              songs={songs}
+              albums={albums}
+              onSearch={onSearch}
             />
           }
         />
@@ -22,6 +25,9 @@ export const Display = ({ currentSong, isPlaying, onSongSelect }) => {
               currentSong={currentSong}
               isPlaying={isPlaying}
               onSongSelect={onSongSelect}
+              songs={songs}
+              albums={albums}
+              onSearch={onSearch}
             />
           }
         />
